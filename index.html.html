@@ -1,0 +1,401 @@
+<!doctype html>
+<!--
+  글꼴: Pretendard (c) 2021 Kil Hyung-jin — SIL Open Font License 1.1
+  https://github.com/orioncactus/pretendard
+-->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>도수치료 관리급여 전환 대응 계획 (개정)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css">
+<style>
+  :root{
+    --violet:#7F56D9; --violet-d:#53389E; --violet-dd:#42307D;
+    --v50:#F9F5FF; --v100:#F4EBFF; --v200:#E9D7FE;
+    --ink:#101828; --mut:#667085; --mut2:#98A2B3; --border:#EAECF0;
+    --green:#12B76A; --red:#F04438; --amber:#F79009;
+    --page:#F3F1FA; --card:#FFFFFF;
+    --r:16px; --shadow:0 10px 28px rgba(83,56,158,.10), 0 2px 6px rgba(16,24,40,.04);
+    --font:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font-family:var(--font);background:var(--page);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
+  .wrap{max-width:1180px;margin:0 auto;padding:32px 16px 56px}
+  .slide{position:relative;width:100%;max-width:1120px;margin:0 auto 28px;background:var(--card);
+    border-radius:22px;box-shadow:var(--shadow);padding:46px 52px;min-height:604px;display:flex;flex-direction:column}
+  .kicker{font-size:12.5px;font-weight:700;color:var(--violet);letter-spacing:.06em}
+  h1.t{font-size:30px;font-weight:800;color:var(--ink);margin:4px 0 0}
+  .sub{font-size:15px;color:var(--mut);margin-top:6px}
+  .row{display:flex;gap:18px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow)}
+  .tint{background:var(--v50);border-color:#EFE7FB}
+  .pad{padding:20px 22px}
+  .stat{background:var(--v50);border-radius:var(--r);padding:22px;text-align:center}
+  .stat .v{font-size:34px;font-weight:800;line-height:1.1}
+  .stat .l{font-size:13px;color:var(--mut);margin-top:8px}
+  .rec{display:flex;flex-direction:column;gap:10px;padding:20px 22px}
+  .rec .top{display:flex;align-items:center;gap:12px}
+  .num{width:36px;height:36px;border-radius:50%;background:var(--violet);color:#fff;font-weight:700;
+    display:flex;align-items:center;justify-content:center;font-size:18px;flex:0 0 auto}
+  .rec h3{margin:0;font-size:17px;color:var(--violet-d);font-weight:700}
+  .rec p{margin:0;font-size:13px;color:var(--ink)}
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th{background:var(--violet-d);color:#fff;font-weight:700;padding:11px 12px;text-align:left}
+  td{padding:11px 12px;border-bottom:1px solid var(--border)}
+  tbody tr:nth-child(even){background:var(--v50)}
+  .th-c th,td.c{text-align:center}
+  .strong{font-weight:700;color:var(--violet-d)}
+  .pos{color:var(--green);font-weight:700}.neg{color:var(--red);font-weight:700}
+  .flow{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .fbox{border-radius:14px;padding:15px 16px;font-weight:700;font-size:13.5px;text-align:center;flex:1;min-width:0;box-shadow:var(--shadow)}
+  .fbox small{display:block;font-weight:500;font-size:12px;margin-top:3px;opacity:.9}
+  .fbox.light{background:var(--v50);color:var(--violet-d);border:1px solid #EFE7FB}
+  .fbox.mid{background:var(--v200);color:var(--violet-dd)}
+  .fbox.solid{background:var(--violet-d);color:#fff}
+  .fbox.amber{background:#FEF3E2;color:#9A6207;border:1px solid #F6DCB0}
+  .arr{font-size:22px;color:var(--violet);font-weight:800;flex:0 0 auto}
+  .okc{background:#ECFDF3;border:1px solid #C7F0DA}.rkc{background:#FEF3F2;border:1px solid #FBD3CE}
+  .tag{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:16px}
+  .dot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700}
+  ul.cl{margin:12px 0 0;padding-left:18px}ul.cl li{font-size:13.5px;margin:6px 0;color:var(--ink)}
+  .band{background:var(--v100);border-radius:14px;padding:13px 18px;font-size:13.5px;font-weight:700;color:var(--violet-d);text-align:center}
+  .note{font-size:11.5px;color:var(--mut);font-style:italic;margin-top:12px}
+  .tl{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;position:relative;margin-top:30px}
+  .tl::before{content:"";position:absolute;left:6%;right:6%;top:9px;height:3px;background:var(--v200);border-radius:3px}
+  .tl .col{display:flex;flex-direction:column;align-items:center;text-align:center}
+  .tl .dot2{width:20px;height:20px;border-radius:50%;background:var(--violet-d);position:relative;z-index:1;margin-bottom:14px}
+  .tl .when{font-size:14px;font-weight:700;color:var(--violet);margin-bottom:12px}
+  .tl .cc{background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:16px;width:100%}
+  .tl .cc h4{margin:0 0 8px;font-size:16px;color:var(--violet-d)}
+  .tl .cc p{margin:0;font-size:12.5px;color:var(--ink)}
+  .pill{display:inline-block;background:var(--v100);border:1px solid var(--v200);color:var(--violet-d);
+    font-weight:700;font-size:13px;padding:8px 16px;border-radius:22px}
+  .trk{border-radius:16px;padding:20px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
+  .trk h3{margin:0;font-size:16px;font-weight:800}
+  .trk .meta{font-size:12.5px;line-height:1.7}
+  .trk .meta b{color:inherit}
+  .trk.a{background:var(--violet-d);color:#fff}
+  .trk.b{background:var(--v50);border:1px solid #EFE7FB;color:var(--violet-d)}
+  .trk.c{background:var(--v200);color:var(--violet-dd)}
+  .lane{display:grid;grid-template-columns:130px 1fr;gap:0;align-items:stretch;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+  .lane+.lane{margin-top:12px}
+  .lane .lab{background:var(--v100);color:var(--violet-d);font-weight:700;font-size:13.5px;display:flex;align-items:center;justify-content:center;padding:14px;text-align:center}
+  .lane .flowcell{padding:13px 14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:#fff}
+  .chip{background:var(--v50);border:1px solid #EFE7FB;border-radius:10px;padding:8px 12px;font-size:12.5px;font-weight:600;color:var(--ink)}
+  .chip.solid{background:var(--violet-d);color:#fff;border-color:var(--violet-d)}
+  .chip.amber{background:#FEF3E2;color:#9A6207;border-color:#F6DCB0}
+  .cover{border:3px solid var(--violet);border-radius:22px;flex:1;display:flex;justify-content:space-between;align-items:flex-start;padding:40px 44px}
+  .cover h1{font-size:44px;font-weight:800;line-height:1.12;margin:26px 0 0;letter-spacing:-.01em}
+  .cover h1 .p2{color:var(--violet);display:block}
+  .cover .csub{font-size:16px;color:var(--mut);margin-top:24px}
+  .cover .cmeta{font-size:12.5px;color:var(--mut2);margin-top:36px}
+  .miniStat{background:var(--card);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);padding:22px 24px;min-width:230px}
+  .miniStat .ml{font-size:12.5px;color:var(--mut)}.miniStat .mv{font-size:34px;font-weight:800;margin:6px 0 8px}
+  .close{background:var(--violet-d);color:#fff;border-radius:22px;flex:1;padding:54px 56px;display:flex;flex-direction:column;justify-content:center}
+  .close .ck{color:var(--amber);font-weight:700;font-size:16px;letter-spacing:.04em}
+  .close h2{font-size:30px;font-weight:800;line-height:1.34;margin:18px 0 0}
+  .close .cs{color:var(--v200);font-size:16px;margin-top:22px}
+  .close .cline{width:84px;height:3px;background:var(--amber);border-radius:3px;margin:24px 0 14px}
+  .close .src{font-size:11.5px;color:#C3B5E8}
+  .foot{max-width:1120px;margin:0 auto;text-align:center;font-size:11px;color:var(--mut2);padding-top:6px}
+  @media print{ body{background:#fff} .slide{box-shadow:none;border:1px solid var(--border);page-break-after:always;margin-bottom:0} }
+  @media (max-width:880px){
+    .slide{padding:30px 22px;min-height:0}
+    h1.t{font-size:24px}.grid3,.grid2{grid-template-columns:1fr}.row{flex-direction:column}.grid4{grid-template-columns:1fr 1fr}
+    .tl{grid-template-columns:1fr 1fr}.tl::before{display:none}
+    .cover{flex-direction:column}.cover h1{font-size:32px}.miniStat{margin-top:24px}
+    .flow{flex-direction:column}.flow .arr{transform:rotate(90deg)}
+    .lane{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- S1 -->
+  <section class="slide" style="padding:0">
+    <div class="cover">
+      <div>
+        <span class="pill">재활치료센터 · 경영 전략 (개정)</span>
+        <h1>도수치료 관리급여 전환<span class="p2">대응 계획</span></h1>
+        <div class="csub">3가지 서비스 · 환자 전환 방법 · 컴플라이언스 · 실행</div>
+        <div class="cmeta">시행 2026. 7. 1. 대비 &nbsp;|&nbsp; 분석 기간 2025.11 ~ 2026.05</div>
+      </div>
+      <div class="miniStat">
+        <div class="ml">도수 부문 월 매출 (현행)</div>
+        <div class="mv">786만 원</div>
+        <div><span class="neg">▼ 52%</span> <span style="color:var(--mut);font-size:13px">전환 시 예상</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S2 핵심 요약 -->
+  <section class="slide">
+    <div class="kicker">01 · SUMMARY</div>
+    <h1 class="t">핵심 요약</h1>
+    <div class="sub">7/1 전환의 충격과 본원 대응의 뼈대</div>
+    <div class="grid3" style="margin-top:22px">
+      <div class="stat"><div class="v" style="color:var(--violet-d)">43,850원</div><div class="l">관리급여 수가 (회당, 본인부담 95%)</div></div>
+      <div class="stat"><div class="v" style="color:var(--violet)">15 · 24회</div><div class="l">연간 한도 (일반 / 예외)</div></div>
+      <div class="stat"><div class="v" style="color:var(--red)">−52%</div><div class="l">근골격계 도수 매출 충격 (5월 기준)</div></div>
+    </div>
+    <div style="font-size:17px;font-weight:700;color:var(--violet-d);margin:26px 0 14px">핵심 제언 3가지</div>
+    <div class="grid3">
+      <div class="card rec"><div class="top"><span class="num">1</span><h3>3가지 서비스</h3></div>
+        <p>ESWT 패키지 · 관리수가 도수(도수M) · R53 비급여 도수(6만)로 구성</p></div>
+      <div class="card rec"><div class="top"><span class="num">2</span><h3>ESWT 패키지</h3></div>
+        <p>E3000·E5000으로 근골격계 환자 흡수, 즉시 적용·실손 가능</p></div>
+      <div class="card rec"><div class="top"><span class="num">3</span><h3>전환 경로 설계</h3></div>
+        <p>신규는 2주 물리치료 후, 기존은 치료력 갈음, 신경계는 R53(6만) 안내</p></div>
+    </div>
+  </section>
+
+  <!-- S3 환경 -->
+  <section class="slide">
+    <div class="kicker">02 · CONTEXT</div>
+    <h1 class="t">환경 분석: 정부안과 그 충격</h1>
+    <div class="row" style="margin-top:22px;align-items:stretch">
+      <div style="flex:1.4">
+        <table>
+          <thead class="th-c"><tr><th style="width:24%">구분</th><th>내용</th></tr></thead>
+          <tbody>
+            <tr><td class="c strong">시행일</td><td>2026. 7. 1.</td></tr>
+            <tr><td class="c strong">수가</td><td>회당 43,850원 (종별 동일), 본인부담 95%</td></tr>
+            <tr><td class="c strong">횟수</td><td>주 2회 이내 · 연간 15회 (예외 시 연 24회)</td></tr>
+            <tr><td class="c strong">우선시행</td><td>기본물리치료·단순재활치료 우선 시행</td></tr>
+            <tr><td class="c strong">전산</td><td>‘도수치료관리시스템’ 전송분만 관리급여 적용</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card tint pad" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+        <div style="font-size:13px;font-weight:700;color:var(--violet-d)">직접 충격 (근골격계 도수 A+B, 5월)</div>
+        <div style="font-size:24px;color:var(--mut);text-decoration:line-through;margin-top:10px">581만 원</div>
+        <div style="font-size:24px;color:var(--violet);font-weight:800">↓</div>
+        <div style="font-size:36px;font-weight:800;color:var(--red)">276만 원</div>
+        <div style="font-size:15px;font-weight:700;color:var(--red);margin-top:4px">약 −52%</div>
+      </div>
+    </div>
+    <p style="font-size:14px;margin-top:20px"><b style="color:var(--violet-d)">구조적 방향</b> &nbsp;정부는 비급여 적정 관리를 단계적으로 강화. ESWT·신장분사요법도 향후 동일 트랙 — 본 전략은 전환 충격을 흡수하는 방어 전략으로 설정.</p>
+  </section>
+
+  <!-- S4 진단 -->
+  <section class="slide">
+    <div class="kicker">03 · DIAGNOSIS</div>
+    <h1 class="t">현황 진단: 본원 도수치료 매출</h1>
+    <div class="card pad" style="margin-top:18px">
+      <div style="font-size:13px;font-weight:700;color:var(--violet-d);text-align:center;margin-bottom:6px">월별 매출 (백만 원)</div>
+      <div style="position:relative;height:256px"><canvas id="c1" role="img" aria-label="2025년 11월부터 2026년 5월까지 항목별 누적 매출. 도수B 급감, 도수A 회복, 충격파 소멸.">도수B 495만→165만, 도수A 회복, 충격파 138만→28만.</canvas></div>
+    </div>
+    <div class="grid4" style="margin-top:14px">
+      <div class="card pad" style="padding:14px 16px"><div style="display:flex;gap:8px;align-items:center"><span style="width:11px;height:11px;border-radius:50%;background:var(--red);flex:0 0 auto"></span><b style="color:var(--violet-d);font-size:14px">도수 B 급감</b></div><div style="font-size:12px;color:var(--mut);margin-top:4px">33 → 11건<br>495만→165만</div></div>
+      <div class="card pad" style="padding:14px 16px"><div style="display:flex;gap:8px;align-items:center"><span style="width:11px;height:11px;border-radius:50%;background:var(--green);flex:0 0 auto"></span><b style="color:var(--violet-d);font-size:14px">도수 A 회복</b></div><div style="font-size:12px;color:var(--mut);margin-top:4px">18(2월) → 52건<br>5월 기준</div></div>
+      <div class="card pad" style="padding:14px 16px"><div style="display:flex;gap:8px;align-items:center"><span style="width:11px;height:11px;border-radius:50%;background:var(--violet);flex:0 0 auto"></span><b style="color:var(--violet-d);font-size:14px">도수 N 안정</b></div><div style="font-size:12px;color:var(--mut);margin-top:4px">61 → 41건<br>매출 견조</div></div>
+      <div class="card pad" style="padding:14px 16px"><div style="display:flex;gap:8px;align-items:center"><span style="width:11px;height:11px;border-radius:50%;background:var(--amber);flex:0 0 auto"></span><b style="color:var(--violet-d);font-size:14px">충격파 소멸</b></div><div style="font-size:12px;color:var(--mut);margin-top:4px">36 → 6건<br>방어 여력</div></div>
+    </div>
+  </section>
+
+  <!-- S5 서비스 3구성 -->
+  <section class="slide">
+    <div class="kicker">04 · SERVICE</div>
+    <h1 class="t">서비스 체계 — 3가지 구성</h1>
+    <div class="sub">목적별로 분리. 적용 시점·횟수·실손보험 여부가 다름</div>
+    <div class="grid3" style="margin-top:22px">
+      <div class="trk a">
+        <h3>ESWT 패키지</h3>
+        <div class="meta">E3000 8만 / E5000 15만<br>적용 · 즉시 (전환 무관)<br>횟수 · 제한 없음<br><b>실손 · 청구 가능</b></div>
+      </div>
+      <div class="trk c">
+        <h3>관리수가 도수 (도수M)</h3>
+        <div class="meta">43,850원 (본인부담 95%)<br>적용 · 2주 물리치료 후<br>횟수 · 연 15/24회<br>구분 · 급여</div>
+      </div>
+      <div class="trk b">
+        <h3>R53 비급여 도수</h3>
+        <div class="meta">기존 도수A · 60,000원<br>적용 · 즉시 (설명·고지 후)<br>횟수 · 미포함<br><b>실손 · 청구 안 됨</b></div>
+      </div>
+    </div>
+    <div class="grid2" style="margin-top:16px">
+      <div class="band" style="text-align:left">ESWT 패키지 &nbsp;—&nbsp; 관리급여 전환의 적용을 받지 않아 7/1 이후에도 즉시 시행, 실손 청구 가능</div>
+      <div class="band" style="text-align:left;background:#FEF3E2;color:#9A6207">R53 비급여 도수 &nbsp;—&nbsp; 전액 본인부담, 실손 청구 불가 (사전 고지·동의)</div>
+    </div>
+  </section>
+
+  <!-- S6 환자 전환 방법 -->
+  <section class="slide">
+    <div class="kicker">05 · TRANSITION</div>
+    <h1 class="t">환자 전환 방법</h1>
+    <div class="sub">신규 · 기존 · 피로목적 환자의 경로</div>
+    <div style="margin-top:22px">
+      <div class="lane">
+        <div class="lab">신규 환자<br>(질환)</div>
+        <div class="flowcell">
+          <span class="chip">내원·평가</span><span class="arr">→</span>
+          <span class="chip amber">2주 물리치료 선행</span><span class="arr">→</span>
+          <span class="chip solid">관리수가 도수(도수M)</span><span style="color:var(--mut);font-size:12px">또는</span><span class="chip">ESWT 패키지</span>
+        </div>
+      </div>
+      <div class="lane">
+        <div class="lab">기존 환자<br>(질환)</div>
+        <div class="flowcell">
+          <span class="chip">기존 치료력</span><span class="arr">→</span>
+          <span class="chip" style="background:var(--v100);border-color:var(--v200);color:var(--violet-d)">선행 요건 갈음</span><span class="arr">→</span>
+          <span class="chip solid">바로 관리수가 도수(도수M)</span>
+        </div>
+      </div>
+      <div class="lane">
+        <div class="lab">신경계 환자<br>(도수 N)</div>
+        <div class="flowcell">
+          <span class="chip">기존·희망 환자</span><span class="arr">→</span>
+          <span class="chip amber">R53 비급여 도수 6만</span>
+          <span style="color:var(--mut);font-size:12px">또는</span>
+          <span class="chip">ESWT 패키지 (적응증 시)</span>
+        </div>
+      </div>
+      <div class="lane">
+        <div class="lab">피로·관리<br>목적</div>
+        <div class="flowcell">
+          <span class="chip">질환 치료 아님</span><span class="arr">→</span>
+          <span class="chip amber">R53 비급여 도수 6만</span>
+          <span style="color:var(--mut);font-size:12.5px">· 실손 X · 전액 본인부담 고지</span>
+        </div>
+      </div>
+    </div>
+    <p class="note">※ 기존 환자는 의무기록에 기존 치료 경과·통증 지속 소견을 연결하여 명시. 선행치료 기준·R53 취급은 최종 고시·심사팀 검토로 확정.</p>
+  </section>
+
+  <!-- S7 패키지 & 수입보전 -->
+  <section class="slide">
+    <div class="kicker">06 · PACKAGE</div>
+    <h1 class="t">신규 패키지와 수입 보전</h1>
+    <div class="row" style="margin-top:20px;align-items:flex-start">
+      <div style="flex:1">
+        <div style="font-weight:700;color:var(--violet-d);margin-bottom:8px">패키지 설계</div>
+        <table>
+          <thead class="th-c"><tr><th>구분</th><th style="text-align:left">구성</th><th>도수</th><th>가격</th></tr></thead>
+          <tbody class="th-c">
+            <tr><td class="strong">E3000</td><td style="text-align:left">체외충격파 3,000타 + 도수</td><td>30분</td><td class="strong">80,000</td></tr>
+            <tr><td class="strong">E5000</td><td style="text-align:left">체외충격파 5,000타 + 도수</td><td>60분</td><td class="strong">150,000</td></tr>
+          </tbody>
+        </table>
+        <p class="note">※ 관리급여 도수는 시간 무관 정액(43,850원). E5000의 차별 가치는 ESWT 타수.</p>
+      </div>
+      <div style="flex:1.15">
+        <div style="font-weight:700;color:var(--violet-d);margin-bottom:8px">수입 보전 = 관리수가 + 비급여 ESWT 차액</div>
+        <table style="font-size:12.5px">
+          <thead class="th-c"><tr><th>패키지</th><th>도수(95%)</th><th>ESWT</th><th>환자부담</th><th>본원수입</th></tr></thead>
+          <tbody class="th-c">
+            <tr><td class="strong">E3000</td><td>43,850</td><td>약 36,150</td><td>약 77,800</td><td class="pos">80,000</td></tr>
+            <tr><td class="strong">E5000</td><td>43,850</td><td>약 106,150</td><td>약 147,800</td><td class="pos">150,000</td></tr>
+          </tbody>
+        </table>
+        <div class="card tint pad" style="margin-top:12px;font-weight:700;color:var(--violet-d);font-size:13.5px">환자 체감가·본원 수입을 거의 보존하면서 관리급여 기준을 충족</div>
+      </div>
+    </div>
+    <div class="band" style="margin-top:18px">예비 전략&nbsp;:&nbsp; 체외충격파가 관리수가로 전환되면 → 신장분사요법 등 대체 비급여로 패키지 축 이전</div>
+  </section>
+
+  <!-- S8 컴플라이언스 -->
+  <section class="slide">
+    <div class="kicker">07 · COMPLIANCE</div>
+    <h1 class="t">지켜야 할 선: 행위 중심 청구</h1>
+    <div class="sub">청구는 라벨이 아니라 실제 시행한 행위를 따른다</div>
+    <div class="grid2" style="margin-top:18px">
+      <div class="card okc pad">
+        <span class="tag" style="color:var(--green)"><span class="dot" style="background:var(--green)">✓</span>가능</span>
+        <ul class="cl">
+          <li>ESWT 보조 처치(스트레칭·단순운동)로 시행·기록 → ESWT 비급여 청구(실손 가능)</li>
+          <li>피로·권태(R53)는 비급여 도수 6만 원, 실손 청구 안 함</li>
+          <li>2주 물리치료 선행 기록으로 ‘단순 마사지 목적 아님’ 입증</li>
+        </ul>
+      </div>
+      <div class="card rkc pad">
+        <span class="tag" style="color:var(--red)"><span class="dot" style="background:var(--red)">✕</span>위험 (부당청구)</span>
+        <ul class="cl">
+          <li>질환 치료 목적 도수(30분)를 패키지 비급여로 묶어 청구</li>
+          <li>질환 치료 목적을 R53 비급여로 우회 청구</li>
+          <li>관리급여 도수를 환자에게 비급여로 수납</li>
+        </ul>
+      </div>
+    </div>
+    <div class="band" style="margin-top:16px">연 15회 한도는 패키지로 회피 불가 &nbsp;·&nbsp; 예외 24회는 ‘수술·골절 등’이 전제 (뇌졸중 경직성 구축은 원칙 비해당)</div>
+    <p class="note">※ 선행치료 기준·R53 비급여 취급 포함, 최종 급여기준 고시 및 본원 보험심사팀 검토로 확정 필요</p>
+  </section>
+
+  <!-- S9 실행 일정 -->
+  <section class="slide">
+    <div class="kicker">08 · EXECUTION</div>
+    <h1 class="t">실행 계획: 추진 일정</h1>
+    <div class="tl">
+      <div class="col"><div class="dot2"></div><div class="when">~6월 중순</div><div class="cc"><h4>설계 확정</h4><p>3서비스·패키지·전환 기준 확정<br>보험심사팀 검토</p></div></div>
+      <div class="col"><div class="dot2"></div><div class="when">~6월 하순</div><div class="cc"><h4>준비·교육</h4><p>시스템 연계 테스트<br>기록 양식·안내문·직원 교육</p></div></div>
+      <div class="col"><div class="dot2"></div><div class="when">7. 1.</div><div class="cc"><h4>시행</h4><p>관리급여 시행<br>패키지·전환 적용 개시</p></div></div>
+      <div class="col"><div class="dot2"></div><div class="when">7월~</div><div class="cc"><h4>모니터링</h4><p>전환율·청구 점검<br>보완</p></div></div>
+    </div>
+    <p style="font-size:13.5px;margin-top:28px"><b style="color:var(--violet-d)">역할</b> &nbsp;진료부(진단코드 M·R53·선행/예외 판단·효과평가) · 물리치료부(선행치료·행위·시간 기록) · 원무·심사(전송·횟수관리·실손 안내·청구 정합성)</p>
+  </section>
+
+  <!-- S10 기대효과 -->
+  <section class="slide">
+    <div class="kicker">09 · OUTLOOK</div>
+    <h1 class="t">기대 효과 및 모니터링</h1>
+    <div class="sub">전제 기반 추정 (현행 도수부문 월 매출 약 786만 원)</div>
+    <div class="row" style="margin-top:20px;align-items:flex-start">
+      <div style="flex:1.5">
+        <table>
+          <thead class="th-c"><tr><th>시나리오</th><th style="text-align:left">전제</th><th>도수부문 월 매출(추정)</th></tr></thead>
+          <tbody>
+            <tr><td class="c strong">보수</td><td>패키지 전환 제한적, 다수 관리수가만 적용</td><td class="c">약 370~410만 원</td></tr>
+            <tr><td class="c strong">기준</td><td>근골격계 패키지 전환 + 신경계 분할 성공</td><td class="c pos">약 750~780만 원</td></tr>
+            <tr><td class="c strong">낙관</td><td>기준안 + 충격파 볼륨 회복 + R53 비급여 수요</td><td class="c">기준안 + 비급여 추가</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card tint pad" style="flex:1">
+        <div style="font-weight:700;color:var(--violet-d);margin-bottom:8px">모니터링 지표 (KPI)</div>
+        <ul class="cl" style="margin-top:4px">
+          <li>패키지 전환율</li><li>환자당 건당 수입</li><li>연간 횟수 소진율</li>
+          <li>충격파 건수 회복률</li><li>R53 비급여 건수</li><li>청구 반려·삭제 건수</li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:13px;color:var(--mut);margin-top:18px"><b style="color:var(--violet-d)">재평가 연계</b> &nbsp;도수치료 평가주기(3년)에 맞춰 비급여 관리 강화 동향 점검 및 예비 전략 적용 시점 사전 검토</p>
+  </section>
+
+  <!-- S11 마무리 -->
+  <section class="slide" style="padding:0">
+    <div class="close">
+      <div class="ck">핵심 메시지</div>
+      <h2>도수치료를 ‘ESWT 패키지·관리수가 도수·R53 비급여’ 3가지 서비스로 나누고,<br>−52% 절벽은 패키지와 환자 전환으로 방어한다.</h2>
+      <div class="cs">신규는 2주 물리치료 후, 기존은 치료력 갈음, 신경계는 R53(6만) 안내 — 모든 청구는 ‘행위 중심’ 원칙을 지킨다.</div>
+      <div class="cline"></div>
+      <div class="src">근거: 본원 청구 데이터(2025.11~2026.05), 2026.6.4 건정심 자료·심평원 Q&amp;A·시스템 매뉴얼 &nbsp;|&nbsp; 선행치료 기준·R53 취급·매출 추정은 최종 고시·심사팀 검토로 확정</div>
+    </div>
+  </section>
+
+  <div class="foot">글꼴 Pretendard © 2021 Kil Hyung-jin · SIL Open Font License 1.1</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const L=["25.11","25.12","26.01","26.02","26.03","26.04","26.05"];
+new Chart(document.getElementById("c1"),{
+  type:"bar",
+  data:{labels:L,datasets:[
+    {label:"도수A",data:[4.00,1.20,1.92,1.44,3.12,3.52,4.16],backgroundColor:"#53389E"},
+    {label:"도수B",data:[4.95,4.80,4.95,4.80,3.60,2.55,1.65],backgroundColor:"#7F56D9"},
+    {label:"도수N",data:[3.05,2.95,2.85,1.95,2.85,1.90,2.05],backgroundColor:"#C3B5E8"},
+    {label:"충격파",data:[1.38,1.68,1.13,0.46,0.45,0.37,0.28],backgroundColor:"#F79009"}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:"bottom",labels:{font:{family:"Pretendard Variable",size:12},color:"#667085",boxWidth:12,padding:14}}},
+    scales:{x:{stacked:true,grid:{display:false},ticks:{color:"#667085",font:{family:"Pretendard Variable"}}},
+            y:{stacked:true,grid:{color:"#EFE7FB"},ticks:{color:"#98A2B3",font:{family:"Pretendard Variable"}}}}
+  }
+});
+</script>
+</body>
+</html>
